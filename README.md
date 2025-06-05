@@ -54,7 +54,7 @@ Citizens often lack a dedicated space to share their concerns or praise about th
 ## 📦 How to Run
 
 1. Clone this repository:
-  git clone https://github.com/yourusername/Naagarik-Feedback-System.git
+  git clone https://github.com/SandeshKhatiwada05/Naagarik-Feedback-System.git
 
 2. Open the project in Visual Studio or VS Code.
 3. Run the following commands in the terminal to set up the database:
