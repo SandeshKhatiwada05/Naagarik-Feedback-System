@@ -1,0 +1,231 @@
+﻿@model IEnumerable<NaagarikFeedbackEF.Models.Feedback>
+
+@{
+    ViewData["Title"] = "Feedback List";
+}
+
+<div class="container">
+    <!-- Logo Section -->
+    <div class="logo-container">
+        <img src="~/Animated-Flag-Nepal.gif" alt="Nepal Flag" class="logo">
+    </div>
+
+    <div class="main-container">
+        <h1>Feedback List</h1>
+        <p>View and manage all feedback entries below.</p>
+        <hr />
+
+        <div class="action-buttons">
+            <a asp-action="Create" class="cta-button">+ Add Feedback</a>
+        </div>
+
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.FeedbackType)</th>
+                    <th>@Html.DisplayNameFor(model => model.FeedbackDescription)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.FeedbackType)</td>
+                        <td>@Html.DisplayFor(modelItem => item.FeedbackDescription)</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="edit-link">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id" class="details-link">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="delete-link">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- New buttons for Positive and Negative feedback -->
+    <div class="button-container">
+        <a href="@Url.Action("Positive", "Feedbacks")" class="cta-button">Positive Feedback</a>
+        <a href="@Url.Action("Negative", "Feedbacks")" class="list-button">Negative Feedback</a>
+    </div>
+</div>
+
+<style>
+    /* General Styling */
+    body {
+        background-color: #f4f7fa;
+        font-family: 'Arial', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        text-align: center;
+        width: 100%;
+    }
+
+    .logo-container {
+        margin-bottom: 20px;
+    }
+
+    .logo {
+        width: 80px;
+        height: auto;
+    }
+
+    .main-container {
+        background: linear-gradient(to bottom, #e3e8ef, #b9d3ee);
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        width: 80%;
+        max-width: 900px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2rem;
+        color: #334e68;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 20px;
+    }
+
+    .action-buttons {
+        text-align: right;
+        margin-bottom: 15px;
+    }
+
+    .cta-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+        .cta-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+    .styled-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+        .styled-table th, .styled-table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .styled-table th {
+            background-color: #334e68;
+            color: white;
+        }
+
+        .styled-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .styled-table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+    .edit-link, .details-link, .delete-link {
+        text-decoration: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .edit-link {
+        color: #2196F3;
+    }
+
+        .edit-link:hover {
+            color: #0b7dda;
+            transform: scale(1.05);
+        }
+
+    .details-link {
+        color: #fbc02d;
+    }
+
+        .details-link:hover {
+            color: #f9a825;
+            transform: scale(1.05);
+        }
+
+    .delete-link {
+        color: #d9534f;
+    }
+
+        .delete-link:hover {
+            color: #c9302c;
+            transform: scale(1.05);
+        }
+
+    .button-container {
+        margin-top: 20px;
+    }
+
+    .cta-button {
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Positive Feedback Button - Blue */
+    .cta-button {
+        background-color: #007BFF; /* Blue */
+        color: white;
+    }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+    /* Negative Feedback Button - Red */
+    .list-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #DC3545; /* Red */
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+        .list-button:hover {
+            background-color: #b02a37;
+            transform: scale(1.05);
+        }
+
+</style>

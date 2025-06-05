@@ -1,0 +1,159 @@
+﻿@model NaagarikFeedbackEF.Models.Feedback
+
+@{
+    ViewData["Title"] = "Create Feedback";
+}
+
+<div class="container">
+    <!-- Logo Section -->
+    <div class="logo-container">
+        <img src="~/Animated-Flag-Nepal.gif" alt="Nepal Flag" class="logo">
+    </div>
+
+    <div class="main-container">
+        <h1>Create Feedback</h1>
+        <p>We appreciate your valuable feedback!</p>
+        <hr />
+
+        <div class="form-container">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" placeholder="Enter your name"
+                           pattern="^[A-Za-z\s]+$" title="Name should only contain letters and spaces" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="FeedbackType" class="control-label"></label>
+                    <select asp-for="FeedbackType" class="form-control">
+                        <option value="Positive">Positive</option>
+                        <option value="Negative">Negative</option>
+                    </select>
+                    <span asp-validation-for="FeedbackType" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="FeedbackDescription" class="control-label"></label>
+                    <textarea asp-for="FeedbackDescription" class="form-control" placeholder="Describe your feedback" rows="4"></textarea>
+                    <span asp-validation-for="FeedbackDescription" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="cta-button">Submit Feedback</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="back-link">
+            <a asp-action="Index" class="back-button">Back to List</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    /* General Styling */
+    body {
+        background-color: #f4f7fa;
+        font-family: 'Arial', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        text-align: center;
+        width: 100%;
+    }
+
+    .logo-container {
+        margin-bottom: 20px;
+    }
+
+    .logo {
+        width: 80px;
+        height: auto;
+    }
+
+    .main-container {
+        background: linear-gradient(to bottom, #e3e8ef, #b9d3ee);
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        width: 60%;
+        max-width: 600px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2rem;
+        color: #334e68;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        text-align: left;
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        display: inline-block;
+        padding: 12px 30px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        margin-top: 10px;
+        border: none;
+        cursor: pointer;
+    }
+
+        .cta-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+    .back-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #d9534f;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+        .back-button:hover {
+            background-color: #c9302c;
+            transform: scale(1.05);
+        }
+</style>

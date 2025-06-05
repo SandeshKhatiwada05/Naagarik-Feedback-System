@@ -1,0 +1,122 @@
+﻿@model NaagarikFeedbackEF.Models.Feedback
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container">
+    <!-- Logo Section -->
+    <div class="logo-container">
+        <img src="~/Animated-Flag-Nepal.gif" alt="Nepal Flag" class="logo">
+    </div>
+
+    <div class="main-container">
+        <h1>Feedback Details</h1>
+        <hr />
+
+        <dl class="row">
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Name)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Name)</dd>
+
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.FeedbackType)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.FeedbackType)</dd>
+
+            <dt class="col-sm-4">@Html.DisplayNameFor(model => model.FeedbackDescription)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.FeedbackDescription)</dd>
+        </dl>
+
+        <div class="button-container">
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="cta-button">Edit</a>
+            <a asp-action="Index" class="back-button">Back to List</a>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* General Styling */
+    body {
+        background-color: #f4f7fa;
+        font-family: 'Arial', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        text-align: center;
+        width: 100%;
+    }
+
+    .logo-container {
+        margin-bottom: 20px;
+    }
+
+    .logo {
+        width: 80px;
+        height: auto;
+    }
+
+    .main-container {
+        background: linear-gradient(to bottom, #e3e8ef, #b9d3ee);
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        width: 60%;
+        max-width: 600px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2rem;
+        color: #334e68;
+        margin-bottom: 20px;
+    }
+
+    .row dt {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .row dd {
+        margin-bottom: 15px;
+        color: #555;
+    }
+
+    .button-container {
+        margin-top: 20px;
+    }
+
+    .cta-button, .back-button {
+        display: inline-block;
+        padding: 12px 30px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        margin: 5px;
+        cursor: pointer;
+        border: none;
+    }
+
+    .cta-button {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+        .cta-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+    .back-button {
+        background-color: #d9534f;
+        color: white;
+    }
+
+        .back-button:hover {
+            background-color: #c9302c;
+            transform: scale(1.05);
+        }
+</style>

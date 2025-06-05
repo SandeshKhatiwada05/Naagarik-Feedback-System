@@ -1,0 +1,152 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="wrapper">
+    <!-- Flag positioned at the top center of the page -->
+    <div class="flag">
+        <img src="~/Animated-Flag-Nepal.gif" alt="Nepal Flag" />
+    </div>
+
+    <!-- Main container for the content -->
+    <div class="main-container">
+        <div class="content-container">
+            <h1>Welcome to Naagarik Feedback</h1>
+            <p>We value your feedback! Share your thoughts and help us improve.</p>
+            <div class="image-container">
+                <img src="~/indeximage.jpg" alt="Feedback Image" class="index-image" />
+            </div>
+
+            <!-- Buttons section -->
+            <div class="button-container">
+                <a href="@Url.Action("Create", "Feedbacks")" class="cta-button">Feedback Here</a>
+                <a href="@Url.Action("Index", "Feedbacks")" class="list-button">Go to List</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<style>
+    /* General reset */
+    body, h1, p {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+    }
+
+    body {
+        background-color: #f4f7fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column; /* Stack flag and content vertically */
+    }
+
+    /* Wrapper to hold both flag and content */
+    .wrapper {
+        text-align: center; /* Center all content */
+    }
+
+    /* Flag styling */
+    .flag img {
+        width: 120px; /* Adjust size as needed */
+        height: auto;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+
+    /* Main container styling */
+    .main-container {
+        background: linear-gradient(to bottom, #e3e8ef, #b9d3ee);
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        width: 80%;
+        max-width: 900px;
+        margin-top: 20px;
+    }
+
+    .content-container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 3rem;
+        color: #334e68;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #333;
+        margin-bottom: 30px;
+        line-height: 1.6;
+    }
+
+    .image-container {
+        margin-bottom: 20px;
+    }
+
+    .index-image {
+        width: 100%;
+        max-width: 500px;
+        border-radius: 10px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+    }
+
+        /* Hover effect on image */
+        .index-image:hover {
+            transform: scale(1.05);
+        }
+
+    /* Button container */
+    .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    /* Cool button styles */
+    .cta-button, .list-button {
+        display: inline-block;
+        padding: 12px 30px;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .cta-button {
+        background-color: #4CAF50;
+    }
+
+        .cta-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        .cta-button:active {
+            background-color: #3e8e41;
+            transform: scale(0.98);
+        }
+
+    .list-button {
+        background-color: #007bff;
+    }
+
+        .list-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .list-button:active {
+            background-color: #004494;
+            transform: scale(0.98);
+        }
+</style>
